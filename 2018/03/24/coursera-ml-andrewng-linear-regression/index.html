@@ -99,7 +99,7 @@
 <h3 id="特征标准化"><a href="#特征标准化" class="headerlink" title="特征标准化"></a>特征标准化</h3><p>在实际的运用中我们选取的特征，比如长度，重量，面积等等，通常单位和范围都不同，这会导致梯度下降算法变慢。所以我们要将特征缩放到相对统一的范围内。通常的方法有 <strong>Standardization</strong> 和 <strong>Normalization</strong>。<strong>Standardization</strong> 是把数据变成符合标准正态分布，即使原来是些奇奇怪怪的分布，由 <strong>中心极限定理</strong> 可知，数据量够大，一样变成正态，更新公式为：</p>
 <script type="math/tex; mode=display">x_i := \frac{x_i-\mu}{\delta}</script><p><strong>Normalization</strong> 对于梯度下降算法友好，可能可以让算法最终收敛并且提高训练速度和精度，更新公式为：</p>
 <script type="math/tex; mode=display">x_i := \frac{x_i-min(x_i)}{max(x_i)-min(x_i)}</script><h3 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h3><p>有时候线性的 <strong>Hypothesis</strong> 不一定合适我们需要拟合的数据，我们会选择多项式拟合例如：</p>
-<script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_1x_2+\theta_4x_1^2+\theta_5x_2^2</script><p>这时候我们也可以将它转化为 <strong>线性回归</strong> 问题，只要令新的特征 <script type="math/tex">x_3=x_1x_2</script>，<script type="math/tex">x_4=x_1^2</script>，<script type="math/tex">x_5=x_2^2</script> 就可以了。</p>
+<script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_1x_2+\theta_4x_1^2+\theta_5x_2^2</script><p>这时候我们可以将它转化为 <strong>线性回归</strong> 问题，只要令新的特征 <script type="math/tex">x_3=x_1x_2</script>，<script type="math/tex">x_4=x_1^2</script>，<script type="math/tex">x_5=x_2^2</script> 就可以了。</p>
 <p>So~，一周目的内容就是这些了，谢谢大家耐心阅读。</p>
 
           <br>
