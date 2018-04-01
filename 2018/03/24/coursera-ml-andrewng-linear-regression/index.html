@@ -63,6 +63,12 @@
 
       <section class='paging'>
   
+    <div class='left'>
+      <a href='/2018/03/31/coursera-ml-andrewng-logistic-regression/'>
+        ‹
+      </a>
+    </div>
+  
   
     <div class='right'>
       <a href='/2018/03/11/build-hexo-blog/'>
@@ -79,9 +85,10 @@
             吴恩达机器学习：线性回归
           </h1>
           <p>首先说一些关于课程的题外话。对于 Ng 的这个课程，我没有选择在 Coursera 上学习课程，一来是因为 Coursera 有自己的课程周期，但这个周期不一定适合所有人。其次 Coursera 的课程作业是使用 Octave 语言，而我个人觉得不管是学习还是未来使用 Python 都会是更合适的语言。所以最终我选择了 课程视频 + Python 实现作业 的形式。</p>
-<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码我放到了 Github 上，点击 <a href="https://github.com/hertzcat/Coursera-ML-AndrewNg-Python" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看，代码中的错误和改进欢迎大家指出。</p>
+<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码我放到了 Github 上，点击 <a href="https://github.com/hertzcat/Coursera-ML-AndrewNg-Python" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看（ 无法访问 Github 的话可以点击 <a href="https://coding.net/u/hertzcat/p/Coursera-ML-AndrewNg-Python/git?public=true" target="_blank" rel="noopener">Coding</a> 查看 ），代码中的错误和改进欢迎大家指出。</p>
 <p>以下是 Ng 机器学习课程第一周的笔记。</p>
 <h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>什么是机器学习？Arthur Samuel 给出的一个非正式定义是：<strong>不通过明确地编程，使计算机拥有通过学习解决问题的能力。</strong><br>机器学习的算法包括 <strong>监督学习</strong>，<strong>无监督学习</strong>，<strong>强化学习</strong>，<strong>推荐系统等</strong>。我们第一周学习的 <strong>线性回归</strong> 属于 <strong>监督学习</strong>。    </p>
+<h3 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h3><p>学习的目的是为了解决问题。回归问题是非常常见的一类问题，目的是为了找寻变量之间的关系。比如要从数据中找寻房屋面积与价格的关系，年龄与身高的关系，气体压力和体积的关系等等。而机器学习要做的正是要让机器自己来学习这些关系，并为对未知的情况做出预测。</p>
 <h3 id="监督学习的工作方式"><a href="#监督学习的工作方式" class="headerlink" title="监督学习的工作方式"></a>监督学习的工作方式</h3><p>首先要有一个训练数据集（ Training Set ），其中包含数据对应问题的正确结果。通过我们的学习算法 （ Learning Algorithm ） 学习训练数据集，最终获得一个函数 （ Hypothesis ），这个函数就是我们需要的 <strong>预测函数</strong>，能够对 训练集的数据 与 其它数据输入 做出比较准确的预测。</p>
 <img src="/2018/03/24/coursera-ml-andrewng-linear-regression/supervised-learning.jpg" title="[监督学习工作方式]">
 <p>对于 <strong>线性回归</strong> ，我们的 <strong>Hypothesis</strong> 就是：</p>
@@ -100,7 +107,7 @@
 <script type="math/tex; mode=display">x_i := \frac{x_i-\mu}{\delta}</script><p><strong>Normalization</strong> 对于梯度下降算法友好，可能可以让算法最终收敛并且提高训练速度和精度，更新公式为：</p>
 <script type="math/tex; mode=display">x_i := \frac{x_i-min(x_i)}{max(x_i)-min(x_i)}</script><h3 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h3><p>有时候线性的 <strong>Hypothesis</strong> 不一定合适我们需要拟合的数据，我们会选择多项式拟合例如：</p>
 <script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_1x_2+\theta_4x_1^2+\theta_5x_2^2</script><p>这时候我们可以将它转化为 <strong>线性回归</strong> 问题，只要令新的特征 <script type="math/tex">x_3=x_1x_2</script>，<script type="math/tex">x_4=x_1^2</script>，<script type="math/tex">x_5=x_2^2</script> 就可以了。</p>
-<p>So~，一周目的内容就是这些了，谢谢大家耐心阅读。</p>
+<p>So~，第一周的内容就是这些了，谢谢大家耐心阅读。</p>
 
           <br>
 <p>hertzcat</p>

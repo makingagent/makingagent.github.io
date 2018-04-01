@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <title>吴恩达机器学习：逻辑回归 - 算力喵</title>
+    <link href='/images/fav.jpg' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115469277-1');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img class='avatar' src='/images/scribble.jpg' alt='Home'></a>
+  <p id='title'>算力喵</p>
+  <p>机器学习不能停~</p>
+  <br>
+  
+  <div class="social-links">
+    
+      
+        <a href="https://weibo.com/hertzcat" class="iconfont icon-weibo" title="weibo"></a>
+      
+    
+      
+        <a href="https://www.zhihu.com/people/hertzcat" class="iconfont icon-zhihu" title="zhihu"></a>
+      
+    
+      
+        <a href="https://twitter.com/hertzcat0" class="iconfont icon-twitter" title="twitter"></a>
+      
+    
+  </div>
+  
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/hertzcat'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+  
+    <div class='right'>
+      <a href='/2018/03/24/coursera-ml-andrewng-linear-regression/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <!-- <div class='date'>2018-03-31</div> -->
+            吴恩达机器学习：逻辑回归
+          </h1>
+          <p>在 <a href="http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/">上一周的课程</a> 里，Andrew Ng 为我们介绍了什么是机器学习以及监督学习中的线性回归。对于一个监督学习，我们要确定我们的 <strong>预测函数</strong>，<strong>代价函数</strong>，然后利用梯度下降算法找到 <strong>代价函数</strong> 最小时，<strong>预测函数</strong> 中的参数值。这周我们会接触监督学习中一类新的问题，称为分类问题。</p>
+<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码我放到了 Github 上，点击 <a href="https://github.com/hertzcat/Coursera-ML-AndrewNg-Python" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看（ 无法访问 Github 的话可以点击 <a href="https://coding.net/u/hertzcat/p/Coursera-ML-AndrewNg-Python/git?public=true" target="_blank" rel="noopener">Coding</a> 查看 ），代码中的错误和改进欢迎大家指出。</p>
+<p>以下是 Ng 机器学习课程第二周的笔记。</p>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>对于监督学习中的分类问题，通常已知一些数据并知道它们各自数据什么类别，然后希望基于这些数据来判断新数据是属于什么类别的。比如已知一些症状特征和是否患有某种疾病的数据，基于这些数据来判断新的病人是否患病。再比如根据过去的垃圾邮件数据来判断新邮件是否为垃圾邮件。</p>
+<h3 id="预测函数"><a href="#预测函数" class="headerlink" title="预测函数"></a>预测函数</h3><p>对于 <strong>线性回归</strong> 我们的 <strong>预测函数</strong> 为：</p>
+<script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\dots+\theta_nx_n=\theta^Tx</script><p>但这个 <strong>预测函数</strong> 的输出是个没有范围的连续值，并不适合分类问题。因此在 <strong>逻辑回归</strong> 中我们使用了：</p>
+<script type="math/tex; mode=display">h_\theta(x)=g(\theta^Tx)</script><script type="math/tex; mode=display">g(z)=\frac{1}{1+e^{-z}}</script><p>来作为 <strong>预测函数</strong>，其中 <script type="math/tex">g(z)</script> 被称为 <strong>Sigmoid</strong> 函数，它很好地将 <strong>预测函数</strong> 的输出值控制在 0、1 之间。（ 下图为 <strong>Sigmoid</strong> 函数图像 ）</p>
+<img src="/2018/03/31/coursera-ml-andrewng-logistic-regression/sigmoid.jpeg" title="[sigmoid 函数图像]">
+<p>于是就可以将 <strong>预测函数</strong> 解释为在给定 <script type="math/tex">x</script> 及参数 <script type="math/tex">\theta</script> 的情况下，<script type="math/tex">y=1</script> （ 属于这个分类 ）的概率：</p>
+<script type="math/tex; mode=display">h_\theta(x)=P(y=1 | x;\theta)</script><h3 id="决策边界"><a href="#决策边界" class="headerlink" title="决策边界"></a>决策边界</h3><p>对于分类问题，有一个新的概念称为 <strong>决策边界</strong>。由于最终我们必须决定输入数据是否属于某个分类，我们设定了 <script type="math/tex">0.5</script> 作为阈值，<strong>预测函数</strong> 输出大于 <script type="math/tex">0.5</script> 的就属于该分类，反之不属于。而 <script type="math/tex">h_\theta(x) = 0.5</script> 时，对应于 <script type="math/tex">\theta^Tx=0</script>。我们将 <script type="math/tex">\theta^Tx=0</script> 对应的曲线称为决策边界（ 注意这里的 <script type="math/tex">x</script> 并不是指训练数据，决策边界是 <script type="math/tex">h_\theta(x)</script> 的属性，下图为作业中的决策边界 ）。</p>
+<img src="/2018/03/31/coursera-ml-andrewng-logistic-regression/decision_boundaries.jpeg" title="[决策边界]">
+<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>再来说说 <strong>逻辑回归</strong> 中的代价函数。如果沿用 <strong>线性回归</strong> 中的代价函数，我们会得到类似下图的曲线（ 下图为单个特征 <script type="math/tex">\theta_0</script> 所对应的代价函数曲线，和 Ng 画的不太一样 ）：</p>
+<img src="/2018/03/31/coursera-ml-andrewng-logistic-regression/old_cost_function.jpeg" title="[代价函数曲线]">
+<p>在这样的函数上使用梯度下降算法，最终很有可能在平坡处停止。在数学上我们可以知道如果一个函数是凸的，那么使用梯度下降一定能找到全局最小值。<strong>凸函数</strong> 是一个很强的限制，可以形象地理解为，在函数上任取一段都是向外凸的（ 如下图，详细定义见 <a href="https://zh.wikipedia.org/wiki/%E5%87%B8%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">维基百科</a> ）。</p>
+<img src="/2018/03/31/coursera-ml-andrewng-logistic-regression/convex.jpeg" title="[凸函数]">
+<p>所以我们使用新的 <strong>代价函数</strong> 使得它满足 <strong>凸函数</strong> 的性质。</p>
+<script type="math/tex; mode=display">
+J(\theta)= -\frac{1}{m}\Big(y^Tlog\big(g\left(X\theta\right)\big)+(1-y)^Tlog\big(1-g\left(X\theta\right)\big)\Big)</script><h3 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h3><p>求解 <strong>代价函数</strong> 最值的方式任然是 <strong>梯度下降</strong> 算法，所以我们需要对 <script type="math/tex">J(\theta)</script> 进行求导（ 求导的计算过程能够给你一个印象，知道求导的结果是怎么来的。但是为了让大家不要淹没在计算的细节中，文章都会省略计算给出最终结果的矩阵形式 ）。</p>
+<script type="math/tex; mode=display">
+\nabla J(\theta)= \frac{1}{m}X^T\big(g(X\theta)-y\big)</script><p>有了 <strong>代价函数</strong> 和 <strong>梯度</strong> 就能够自己实现梯度下降算法来求解问题了。不过在课程中 Ng 提到了几种 <strong>梯度下降</strong> 的优化算法，<strong>Conjugate descent</strong>、<strong>BFGS</strong>、<strong>L-BFGS</strong>。这些算法不需要指定学习率，而且能够更快地找到解，我们可以通过调用内置函数来完成学习（ 在作业中由于没有 Octave 的 fminunc 函数，作为代替使用了 scipy 包中的 minimize 函数，算法用的是 <strong>BFGS</strong> ）。</p>
+<h3 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h3><p><strong>正则化</strong> 的引入是为了防止学习中的 <strong>过拟合现象</strong>。简单来说 <strong>过拟合现象</strong> 就是我们的学习算法将很多对问题并不重要的 细节特征甚至 噪声 都考虑了进来，认为它们是决策依据。就像对于作业 ex2_reg.py 中需要分类的数据，假设了 <strong>预测函数</strong> ：</p>
+<script type="math/tex; mode=display">g(\theta_0+\theta_1x_1+\theta_2x_2+\dots+\theta_{26}x_1x_2^5++\theta_{27}x_2^6)</script><img src="/2018/03/31/coursera-ml-andrewng-logistic-regression/over_fit.jpeg" title="[过拟合]">
+<p>对于含有 28 个参数的 <strong>预测函数</strong> ，可以拟合很多类型的数据，但对于作业中的数据有些特征并不需要。我们希望 <script type="math/tex">J(\theta)</script> 取得最小的同时，特征的系数 <script type="math/tex">\theta_i</script> 尽可能小。为此对 <strong>代价函数</strong> 做一些修改变成如下形式：</p>
+<script type="math/tex; mode=display">
+J(\theta)= -\frac{1}{m}\Big(y^Tlog\big(g\left(X\theta\right)\big)+(1-y)^Tlog\big(1-g\left(X\theta\right)\big)\Big)+\frac{\lambda}{2m}\theta^T\theta</script><p>试中 <script type="math/tex">\lambda</script> 为正则化系数，用来平衡两个目标，一个是让前半部分的 <strong>代价函数</strong> 尽量小，一个是避免参数过大导致过拟合。后半部分正则化项中的 <script type="math/tex">\theta_0</script> 取零，因为一般不对其进行约束。<strong>线性回归</strong> 同样可以使用正则化的方法，这里我们只给出正则化后的代价函数：</p>
+<script type="math/tex; mode=display">J(\theta)=\frac{1}{2m}(X\theta-y)^T(X\theta-y)+\frac{\lambda}{2m}\theta^T\theta</script><p>如果使用正规方程的方法，那么最后 <script type="math/tex">\theta</script> 的解为：</p>
+<script type="math/tex; mode=display">\theta=(X^TX+\lambda\left[\begin{array}{ccccc}0 &\cdots &\cdots &\cdots &0 \\ 0 &1 &\cdots &\cdots &0\\ \vdots & \vdots & 1 &\cdots & 0\\ \vdots &\vdots &\cdots &\ddots & \vdots \\ 0 & 0 &\cdots &\cdots &1 \end{array}\right])^{-1}X^Ty</script><p>正则话是一个蛮大的主题，在这里一时半会没法讲全，自己理解的也不透彻，等有了更好的体会时再与大家分享。</p>
+<p>So~，第二周的内容就是这些了，谢谢大家耐心阅读。</p>
+
+          <br>
+<p>hertzcat</p>
+<p class='date'>2018-03-31</p>
+
+        </section>
+      </div>
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/hertzcat'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  <span class='muted'>&copy; hertzcat. All Rights Reserved.</span><br>
+  <a href='https://github.com/saintwinkle/hexo-theme-scribble' class='muted'>built with Hexo using Scribble theme</a>
+  <br>
+</footer>
+
+  </body>
+</html>
