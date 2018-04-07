@@ -4,12 +4,27 @@
 
     
   <url>
-    <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
-    <lastmod>2018-04-02T11:21:05.000Z</lastmod>
+    <loc>http://hertzcat.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/</loc>
+    <lastmod>2018-04-07T05:23:28.764Z</lastmod>
     <data>
         <display>
-        <title>万里长征第一步，博客搭建</title>
-        <pubTime>2018-03-11T09:34:41.000Z</pubTime>
+        <title>吴恩达机器学习：神经网络 | 多分类问题</title>
+        <pubTime>2018-04-07T00:19:16.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
+    <lastmod>2018-04-07T05:07:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：逻辑回归</title>
+        <pubTime>2018-03-31T13:05:57.000Z</pubTime>
         
          
            
@@ -20,7 +35,7 @@
     
   <url>
     <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
-    <lastmod>2018-04-02T11:21:03.000Z</lastmod>
+    <lastmod>2018-04-07T05:07:50.000Z</lastmod>
     <data>
         <display>
         <title>吴恩达机器学习：线性回归</title>
@@ -34,12 +49,12 @@
 
     
   <url>
-    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
-    <lastmod>2018-04-02T11:21:01.000Z</lastmod>
+    <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
+    <lastmod>2018-04-02T11:21:05.000Z</lastmod>
     <data>
         <display>
-        <title>吴恩达机器学习：逻辑回归</title>
-        <pubTime>2018-03-31T13:05:57.000Z</pubTime>
+        <title>万里长征第一步，博客搭建</title>
+        <pubTime>2018-03-11T09:34:41.000Z</pubTime>
         
          
            

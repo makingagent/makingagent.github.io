@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
+    <loc>http://hertzcat.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/</loc>
     
-    <lastmod>2018-04-02T11:21:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
-    
-    <lastmod>2018-04-02T11:21:03.000Z</lastmod>
+    <lastmod>2018-04-07T05:23:28.764Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
     
-    <lastmod>2018-04-02T11:21:01.000Z</lastmod>
+    <lastmod>2018-04-07T05:07:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
+    
+    <lastmod>2018-04-07T05:07:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
+    
+    <lastmod>2018-04-02T11:21:05.000Z</lastmod>
     
   </url>
   

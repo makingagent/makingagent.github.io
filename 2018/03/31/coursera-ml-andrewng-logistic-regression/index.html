@@ -66,6 +66,12 @@
 
       <section class='paging'>
   
+    <div class='left'>
+      <a href='/2018/04/07/coursera-ml-andrewng-nn-multi-class/'>
+        ‹
+      </a>
+    </div>
+  
   
     <div class='right'>
       <a href='/2018/03/24/coursera-ml-andrewng-linear-regression/'>
@@ -82,7 +88,7 @@
             吴恩达机器学习：逻辑回归
           </h1>
           <p>在 <a href="http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/">上一周的课程</a> 里，Andrew Ng 为我们介绍了什么是机器学习以及监督学习中的线性回归。对于一个监督学习，我们要确定我们的 <strong>预测函数</strong>，<strong>代价函数</strong>，然后利用梯度下降算法找到 <strong>代价函数</strong> 最小时，<strong>预测函数</strong> 中的参数值。这周我们会接触监督学习中一类新的问题，称为分类问题。</p>
-<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码我放到了 Github 上，点击 <a href="https://github.com/hertzcat/Coursera-ML-AndrewNg-Python" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看（ 无法访问 Github 的话可以点击 <a href="https://coding.net/u/hertzcat/p/Coursera-ML-AndrewNg-Python/git?public=true" target="_blank" rel="noopener">Coding</a> 查看 ），代码中的错误和改进欢迎大家指出。</p>
+<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码我放到了 Github 上，点击 <a href="https://github.com/hertzcat/Coursera-Machine-Learning" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看（ 无法访问 Github 的话可以点击 <a href="https://coding.net/u/hertzcat/p/Coursera-Machine-Learning/git?public=true" target="_blank" rel="noopener">Coding</a> 查看 ），代码中的错误和改进欢迎大家指出。</p>
 <p>以下是 Ng 机器学习课程第二周的笔记。</p>
 <h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><p>对于监督学习中的分类问题，通常已知一些数据并知道它们各自属于什么类别，然后希望基于这些数据来判断新数据是属于什么类别的。比如已知一些症状特征和是否患有某种疾病的数据，基于这些数据来判断新的病人是否患病。再比如根据过去的垃圾邮件数据来判断新邮件是否为垃圾邮件。</p>
 <h3 id="预测函数"><a href="#预测函数" class="headerlink" title="预测函数"></a>预测函数</h3><p>对于 <strong>线性回归</strong> 我们的 <strong>预测函数</strong> 为：</p>
