@@ -66,6 +66,12 @@
 
       <section class='paging'>
   
+    <div class='left'>
+      <a href='/2018/04/14/coursera-ml-andrewng-nn-back-propagation/'>
+        ‹
+      </a>
+    </div>
+  
   
     <div class='right'>
       <a href='/2018/03/31/coursera-ml-andrewng-logistic-regression/'>
@@ -103,6 +109,13 @@ x_0
     a_2^{(2)} \\
     a_3^{(2)} \\
 \end{bmatrix}=g\left(
+\begin{bmatrix}   
+    z_1^{(2)} \\
+    z_2^{(2)} \\
+    z_3^{(2)} \\
+\end{bmatrix}
+\right)
+=g\left(
 \begin{bmatrix}
     \Theta_{10}^{(1)} & \Theta_{11}^{(1)} & \Theta_{12}^{(1)} & \Theta_{13}^{(1)}x_3) \\
     \Theta_{20}^{(1)} & \Theta_{21}^{(1)} & \Theta_{22}^{(1)} & \Theta_{23}^{(1)} \\
@@ -114,7 +127,7 @@ x_0
     x_2 \\
     x_3 \\
 \end{bmatrix}\right)</script><script type="math/tex; mode=display">
-h_\Theta(x)=a_1^{(3)}=g\left(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}\right)</script><p>式中 <script type="math/tex">g(z)</script> 为 <strong>激活函数</strong>，也就是 <strong>逻辑回归</strong> 中提到的 <strong>Sigmoid</strong> 函数。<script type="math/tex">a_0^{(2)}=1</script> 为偏置。<script type="math/tex">h_\Theta(x)</script> 由于输出层只有一个元素，为了美观没有写为矩阵形式。图中输出层只有一个 <strong>逻辑单元</strong>，但实际可以有多个。</p>
+h_\Theta(x)=a_1^{(3)}=g\left(z_1^{(3)}\right)=g\left(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}\right)</script><p>式中 <script type="math/tex">g(z)</script> 为 <strong>激活函数</strong>，课程中使用的是 <strong>逻辑回归</strong> 中提到的 <strong>Sigmoid</strong> 函数。<script type="math/tex">z</script> 为中间变量，上一层激活函数值的加权和。<script type="math/tex">a_0^{(2)}=1</script> 为偏置。<script type="math/tex">h_\Theta(x)</script> 由于输出层只有一个元素，为了美观没有写为矩阵形式。图中输出层只有一个 <strong>逻辑单元</strong>，但实际可以有多个。</p>
 <h3 id="表达能力"><a href="#表达能力" class="headerlink" title="表达能力"></a>表达能力</h3><p><strong>监督学习</strong> 的目的就是为了使用算法获得问题的 <strong>预测函数</strong>，所以一个 <strong>预测函数</strong> 能够表达的函数越多，应用就能够更广泛。那么 <strong>神经网络</strong> 的表达能力如何呢？Andrew Ng 在课程中展示了如何使用 <strong>逻辑单元</strong> 来组成数字电路中的 <strong>逻辑门</strong>。而我们又知道 <strong>逻辑门</strong> 是计算机计算的基础，它们的组合可以表达一切可以计算的函数，所以从某种直觉上来说 <strong>神经网络</strong> 能够表达的东西是非常多的。<br>这里我强烈推荐看 <a href="http://neuralnetworksanddeeplearning.com/chap4.html" target="_blank" rel="noopener"><strong>神经网络可以拟合任意函数的视觉证明</strong></a>（ sorry~，第四章有互动，没能找到好的翻译 ），在文章中你可以调整各种参数，互动地感受 <strong>神经网络</strong> 的表达能力。</p>
 <h3 id="手写字符识别"><a href="#手写字符识别" class="headerlink" title="手写字符识别"></a>手写字符识别</h3><p>本周课程最后回到我们的 <strong>多分类问题</strong> 问题，我们构造一个 <strong>神经网络</strong> 来完成手写字符识别的任务。网络的输入为 20x20 的图片，所以输入层有 401 个单元。我们需要归类 0 ~ 9 的 10 个数字，所以输出层有 10 个单元，第 <script type="math/tex">i</script> 个单元表示图片为 <script type="math/tex">i\ mod\ 10</script> 的概率（ 偏置不在图中绘出 ）。<br><img src="/2018/04/07/coursera-ml-andrewng-nn-multi-class/multi_class.jpeg" title="[手写字符识别神经网络]"><br>作业中给出的隐含层为 26 个单元，并且已经给出了层与层之前的权值矩阵，我们通过 <strong>神经网络</strong> 的数学表达来计算它的输出。最后我们得到的识别准确率为 97%。看到 <strong>神经网络</strong> 正确地给图片做出分类还真是觉得神奇。</p>
 <p>在下次的课程中我们会学习如何训练我们的 <strong>神经网络</strong>，给出它的 <strong>代价函数</strong>，并使用 <strong>反向传播</strong> 算法来计算梯度。 </p>
