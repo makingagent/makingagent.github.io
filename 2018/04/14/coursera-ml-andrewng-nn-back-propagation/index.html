@@ -106,7 +106,7 @@ J(\Theta)= -\frac{1}{m}\sum\limits_{i=1}^{m}\sum\limits_{k=1}^{K}\Big(y_k^{(i)}l
 \frac{\partial y}{\partial t} = \sum\limits_{i=1}^{n} \frac{\partial y}{\partial z_i} \frac{\partial z_i}{\partial t}</script><p>神经网络就是一个层次很多的多元函数，我们可以隐约从 <strong>链式法则</strong> 中感觉到反向传播的意味。</p>
 <h3 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h3><p>为了施展 <strong>反向传播</strong> 的魔法，我们首要要引入一个中间变量 <script type="math/tex">\delta</script>，定义为：</p>
 <script type="math/tex; mode=display">
-\delta_j^{l} = \frac{\partial J}{\partial z_j^{l}}</script><p>其中 <script type="math/tex">l</script> 为第几层，<script type="math/tex">j</script> 表示第 <script type="math/tex">l</script> 层的第几个神经元，<script type="math/tex">z</script> 为上次课程提到的中间变量（ 为了让式子看上去更清晰，<strong>反向传播</strong> 中的公式上标不使用括号 ）。<script type="math/tex">\delta</script> 被称为第 <script type="math/tex">l</script> 第 <script type="math/tex">j</script> 个神经元的误差。<strong>反向传播</strong> 就是先计算每一层每个神经元的误差，然后通过误差来得到梯度的。</p>
+\delta_j^{l} = \frac{\partial J}{\partial z_j^{l}}</script><p>其中 <script type="math/tex">l</script> 为第几层，<script type="math/tex">j</script> 表示第 <script type="math/tex">l</script> 层的第几个神经元，<script type="math/tex">z</script> 为上次课程提到的中间变量（ 为了让式子看上去更清晰，<strong>反向传播</strong> 中的公式上标不使用括号 ）。<script type="math/tex">\delta</script> 被称为第 <script type="math/tex">l</script> 层第 <script type="math/tex">j</script> 个神经元的误差。<strong>反向传播</strong> 就是先计算每一层每个神经元的误差，然后通过误差来得到梯度的。</p>
 <p>首先来看输出层的误差：</p>
 <script type="math/tex; mode=display">
 \delta^L_j = \frac{\partial J}{\partial z^L_j}</script><p>对它使用 <strong>链式法则</strong> 得到：</p>
