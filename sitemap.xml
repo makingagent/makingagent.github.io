@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hertzcat.com/2018/04/27/tensorflow-playground/</loc>
+    
+    <lastmod>2018-04-27T01:43:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hertzcat.com/2018/04/21/coursera-ml-andrewng-bias-vs-variance/</loc>
     
     <lastmod>2018-04-22T12:01:59.000Z</lastmod>
