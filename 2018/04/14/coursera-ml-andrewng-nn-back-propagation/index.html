@@ -150,7 +150,7 @@ z_k^{l+1} = \sum\limits_{p=1}^{s_l} \Theta_{kp}^{l} g(z_p^l)+b_k^{l}</script><p>
 <li>计算梯度矩阵：<script type="math/tex; mode=display">D^{l}_{ij} =
 \begin{cases}
 \dfrac{1}{m}\Delta^{l}_{ij} + \dfrac{\lambda}{m}\Theta^{l}_{ij} & \mbox{if $j \neq 0$} \\
-\dfrac{1}{m}\Delta_{ij}^{(l)} & \mbox{if $j=0$}
+\dfrac{1}{m}\Delta_{ij}^{l} & \mbox{if $j=0$}
 \end{cases}</script></li>
 <li>更新权值 <script type="math/tex">\Theta^l := \Theta^l+ \alpha D^l</script></li>
 </ol>
