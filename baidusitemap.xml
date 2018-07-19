@@ -4,8 +4,23 @@
 
     
   <url>
+    <loc>http://hertzcat.com/2018/05/13/coursera-ml-andrewng-svm/</loc>
+    <lastmod>2018-07-19T15:14:20.818Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：支持向量机</title>
+        <pubTime>2018-05-13T10:26:28.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://hertzcat.com/2018/07/07/coursera-ml-andrewng-anomaly-detection-and-collaborative-filtering/</loc>
-    <lastmod>2018-07-11T08:40:16.064Z</lastmod>
+    <lastmod>2018-07-11T13:44:21.218Z</lastmod>
     <data>
         <display>
         <title>吴恩达机器学习：异常检测与协同过滤</title>
@@ -20,7 +35,7 @@
     
   <url>
     <loc>http://hertzcat.com/2018/04/14/coursera-ml-andrewng-nn-back-propagation/</loc>
-    <lastmod>2018-07-09T15:39:04.000Z</lastmod>
+    <lastmod>2018-07-09T15:39:04.544Z</lastmod>
     <data>
         <display>
         <title>吴恩达机器学习：神经网络 | 反向传播算法</title>
@@ -35,7 +50,7 @@
     
   <url>
     <loc>http://hertzcat.com/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/</loc>
-    <lastmod>2018-07-07T03:28:02.000Z</lastmod>
+    <lastmod>2018-07-07T03:28:03.203Z</lastmod>
     <data>
         <display>
         <title>吴恩达机器学习：无监督学习 | k-means 与 PCA</title>
@@ -50,7 +65,7 @@
     
   <url>
     <loc>http://hertzcat.com/2018/06/13/non-player-game/</loc>
-    <lastmod>2018-06-13T15:50:40.000Z</lastmod>
+    <lastmod>2018-06-13T15:50:42.173Z</lastmod>
     <data>
         <display>
         <title>Non-player game：Spaceship</title>
@@ -65,26 +80,11 @@
     
   <url>
     <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
-    <lastmod>2018-06-05T13:29:45.000Z</lastmod>
+    <lastmod>2018-06-05T13:29:45.037Z</lastmod>
     <data>
         <display>
         <title>万里长征第一步，博客搭建</title>
         <pubTime>2018-03-11T09:34:41.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://hertzcat.com/2018/05/13/coursera-ml-andrewng-svm/</loc>
-    <lastmod>2018-05-17T13:57:13.077Z</lastmod>
-    <data>
-        <display>
-        <title>吴恩达机器学习：支持向量机</title>
-        <pubTime>2018-05-13T10:26:28.000Z</pubTime>
         
          
            
@@ -125,7 +125,7 @@
     
   <url>
     <loc>http://hertzcat.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/</loc>
-    <lastmod>2018-04-14T13:19:49.858Z</lastmod>
+    <lastmod>2018-04-14T13:19:49.000Z</lastmod>
     <data>
         <display>
         <title>吴恩达机器学习：神经网络 | 多分类问题</title>
