@@ -4,6 +4,51 @@
 
     
   <url>
+    <loc>http://hertzcat.com/2018/07/29/westworld/</loc>
+    <lastmod>2018-07-29T13:48:51.007Z</lastmod>
+    <data>
+        <display>
+        <title>《西部世界》</title>
+        <pubTime>2018-07-29T13:44:53.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
+    <lastmod>2018-07-20T14:50:51.439Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：逻辑回归</title>
+        <pubTime>2018-03-31T13:05:57.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
+    <lastmod>2018-07-20T14:48:06.809Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：线性回归</title>
+        <pubTime>2018-03-24T02:33:53.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://hertzcat.com/2018/05/13/coursera-ml-andrewng-svm/</loc>
     <lastmod>2018-07-19T15:14:20.818Z</lastmod>
     <data>
@@ -130,36 +175,6 @@
         <display>
         <title>吴恩达机器学习：神经网络 | 多分类问题</title>
         <pubTime>2018-04-07T00:19:16.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
-    <lastmod>2018-04-11T01:05:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>吴恩达机器学习：线性回归</title>
-        <pubTime>2018-03-24T02:33:53.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
-    <lastmod>2018-04-11T01:04:53.000Z</lastmod>
-    <data>
-        <display>
-        <title>吴恩达机器学习：逻辑回归</title>
-        <pubTime>2018-03-31T13:05:57.000Z</pubTime>
         
          
            
