@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>Box2D 学习：平衡车 - 算力喵</title>
+    <link href='/images/fav.jpg' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+  <meta name="keywords" content="机器学习,Machine Learning,算力喵">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115469277-1');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img class='avatar' src='/images/scribble.jpg' alt='Home'></a>
+  <p id='title'>算力喵</p>
+  <p>机器学习不能停~</p>
+  <br>
+  
+  <div class="social-links">
+    
+      
+        <a href="https://weibo.com/hertzcat" class="iconfont icon-weibo" title="weibo"></a>
+      
+    
+      
+        <a href="https://www.zhihu.com/people/hertzcat" class="iconfont icon-zhihu" title="zhihu"></a>
+      
+    
+      
+        <a href="https://twitter.com/hertzcat0" class="iconfont icon-twitter" title="twitter"></a>
+      
+    
+  </div>
+  
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/hertzcat'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+  
+    <div class='right'>
+      <a href='/2018/07/29/westworld/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <!-- <div class='date'>2018-09-01</div> -->
+            Box2D 学习：平衡车
+          </h1>
+          <p>Box2D 是暴雪公司大牛 <a href="https://twitter.com/erin_catto?lang=en" target="_blank" rel="noopener"><strong>Erin Catto</strong></a> 开发的开源物理引擎。有很多著名游戏使用了它，比如愤怒的小鸟、地狱边境、Tiny Wings 等。而 Unity、Cocos2d 等游戏引擎更是把它集成在其中。<br>为什么想起来学习 Box2D 呢？因为想在虚拟的物理世界中创建一些智能 Agent。虽然在之前的 <a href="https://natureofcode.com/" target="_blank" rel="noopener"><strong>The Nature of Code</strong></a> 中学习了一些基础的力、运动的实现，但没有涉及碰撞、连接等。我们当然可以自己造轮子来实现这些内容，但如果能利用已有的 Box2D 引擎，站在巨人的肩膀上，我们就能够更加专注于要做的事情，来构建智能 Agent。</p>
+<h3 id="Segway"><a href="#Segway" class="headerlink" title="Segway"></a>Segway</h3><p>学习 Box2D 最好的方法就是做个项目练练手。这次尝试的项目是在 Box2D 中建造一个平衡车，并使用控制算法让它保持平衡并听从指挥移动到指定位置。项目中我们把平衡车抽象为简单的模型，由一个柄、一根杆和一个轮子组成。轮子由一个电机控制，可以正向或者反向转动。（ 项目的思路方法来自于 hardmaru 的<a href="http://blog.otoro.net/2014/11/16/self-balancing-pendulum/" target="_blank" rel="noopener"><strong>博客</strong></a> ）</p>
+<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>最原始的 Box2D 是使用 C++ 实现的，这里使用的是 NOC 中的 Javascript 版本，这使得项目可以方便地发布到网络上，不过同时也丧失了很大的性能优势。然后由于 Box2D 是一个纯物理引擎不带有渲染功能，所以我们使用 p5.js 来做渲染。<br>创建的大体想法是先建立一些基本元素，比如长方形和圆，给它们添加上渲染方法以及对应的物理引擎元素。然后通过 Box2D 中的连接器把它们组装到一起，当然不要忘了设置一个地面。最后创建出的平衡车由于没有对于轮子的控制系统，所以会直接倒下。</p>
+<img src="/2018/09/01/box2d-segway/segway_build.gif" title="[创建]">
+<p>这里不想讨论过多的代码实现细节，对于 Box2D 的使用方式我推荐 <a href="http://www.iforce2d.net/b2dtut/" target="_blank" rel="noopener"><strong>这个站点</strong></a>，对于平衡车创建的细节可以查看 <a href="https://github.com/hertzcat/segway" target="_blank" rel="noopener"><strong>源码</strong></a>。</p>
+<h3 id="PID"><a href="#PID" class="headerlink" title="PID"></a>PID</h3><p>怎么让平衡车平衡呢？这需要使用目前广泛地应用于各种系统，平衡车、无人机的 PID 控制算法。它的主要作用就是调节系统使得系统中的某个参数值到达你的设定值。PID 分别表示了三个调节部分，比例、积分、微分，控制器的输出值就是这三者的和。</p>
+<img src="/2018/09/01/box2d-segway/pid.jpg" title="[pid]">
+<p>在离散的情况下，这三项的表达更为简单：</p>
+<script type="math/tex; mode=display">P_t = K_p*error_t</script><script type="math/tex; mode=display">I_t = I_{t-dt}+K_i*error_t*dt</script><script type="math/tex; mode=display">D_t = K_d*(error_t-error_{t-dt})/dt</script><p>而最后的输出就是 <script type="math/tex">u_t = P_t + I_t + D_t</script>，其中 <script type="math/tex">dt</script> 为 1/30 秒。对于平衡车，我们把目标值定为平衡车与地面的角度，而 PID 控制的量为轮子转速的增减。<br>先来看下 <strong>比例控制器</strong>，它的作用很直白，就是有多少误差就去回复它。表现在平很车上就是如果车向左边倒就控制轮子向左边跑，向右边倒就向右跑。增加 <script type="math/tex">K_p</script> 的值可以加快减小误差的速度，但是会产生震荡。</p>
+<img src="/2018/09/01/box2d-segway/pid_p.gif" title="[比例]">
+<p><strong>积分控制器</strong> 按照它的计算方式可以看出，它的作用就是消除所有误差的整体误差。对于平衡车由于没有什么误差的整体偏差，基本都是来回整荡，因此可以把 <script type="math/tex">K_i</script> 系数设为 0。<br><strong>微分控制器</strong> 相当于加入了阻尼，可以使震荡快速衰减，变得稳定。在我们给平衡车加入微分控制之后，它的稳定性明显增加了。</p>
+<img src="/2018/09/01/box2d-segway/pid_pd.gif" title="[比例+微分]">
+<p>对于 PID 的调参没有进行很深入的研究，有兴趣的同学可以自己查找相关资料。接下来的目标就是如何让平衡车移动到我们指定的位置。</p>
+<h3 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h3><p>想一下真正驾驶平衡车的情况，如果要到达目标地点，首先要身体前倾加速。到达最大速度限制后身体基本保持直立，快要到目的地时后仰减速。所以我们希望平衡车移动到目标位置的速度曲线是这样的：<br><img src="/2018/09/01/box2d-segway/velocity.jpeg" title="[速度曲线]"><br>对于一开始的加速，可以把 PID 的目标值设为一定的角度，而且距离目标位置越远可以适当地增大这个角度。然后当速度到达一个上限时，把目标值设回 0 度使得平衡车匀速运动。最后根据当前的速度假设一个平衡车未来会到达的位置，由于这个位置在平衡车到达目标位置前就会越过目标位置，这时如果使用这个虚拟的位置来计算目标倾角，就会得到相当于刹车的效果。</p>
+<img src="/2018/09/01/box2d-segway/pid_move.gif" title="[移动]">
+<p>动图中顶部的曲线为平衡车的水平速度曲线。红色竖线为我们设定的目标位置，绿色竖线为假设平衡车未来会到达的位置。</p>
+<p>So~，这就是整个小项目的全部了，有兴趣的同学可以到 <a href="http://hertzcat.com/segway/"><strong>Demo</strong></a> 页玩一下。</p>
+
+          <br>
+<p>hertzcat</p>
+<p class='date'>2018-09-01</p>
+
+        </section>
+      </div>
+      
+        <div class='block'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_shortname = 'hertzcat';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+</div>
+
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/hertzcat'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  <span class='muted'>&copy; hertzcat. All Rights Reserved.</span><br>
+  <a href='https://github.com/saintwinkle/hexo-theme-scribble' class='muted'>built with Hexo using Scribble theme</a>
+  <br>
+</footer>
+
+  </body>
+</html>
