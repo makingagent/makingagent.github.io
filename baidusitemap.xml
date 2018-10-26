@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://hertzcat.com/2018/10/26/ufldl-vectorization/</loc>
+    <lastmod>2018-10-26T12:34:17.221Z</lastmod>
+    <data>
+        <display>
+        <title>UFLDL：向量化</title>
+        <pubTime>2018-10-26T12:02:34.000Z</pubTime>
+        
+        <tag>UFLDL,神经网络,稀疏自编码器,autoencoder,Python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://hertzcat.com/2018/10/20/ufldl-sparse-autoencoder/</loc>
     <lastmod>2018-10-20T10:17:36.707Z</lastmod>
     <data>
