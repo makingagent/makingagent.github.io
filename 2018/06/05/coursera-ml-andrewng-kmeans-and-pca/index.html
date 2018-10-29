@@ -107,7 +107,7 @@ J(c^{(1)},c^{(2)},...,c^{(m)};\mu_1,\mu_2,...,\mu_k)=\frac{1}{m}\sum_{i=1}^m||x^
 <h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><p>在机器学习中，降低特征的维度能够给我们带来很多好处。首先降低特征的维度可以提升学习的效率。其次降维可以让我们的注意力集中在重要的特征上。再有降维也可以作为一种数据压缩的方法。这里将要学习的降维算法被称作 <strong>主成分分析</strong>（ <strong>PCA</strong> ）。</p>
 <h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><p>在统计学中，<strong>协方差</strong> 表现了两组数据之间的关联性（ 当数据为同一个是就是 <strong>方差</strong> ）。为了了解 <strong>协方差</strong> 与降维算法的关系，我们先来看简单的二维情况。假设我们的数据有两个特征（ 如图 ），并且已经做过 <strong>标准化</strong>。红色的数据点在这个坐标系下呈现出明显的先关性（ <strong>协方差</strong> 大 ）。<br><img src="/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/covariance.jpg" title="[基]"><br>由 <strong>线性代数</strong> 的知识可以知道，我们可以使用不同的 <strong>基</strong> （ 特征 ）来表示这些数据，如图中的绿色坐标和蓝色坐标。通过直觉可以发现如果将数据投影到较长的蓝色坐标上来降维是更为合适的选择。事实上这也是使得 <strong>协方差</strong> 最小的选择，<strong>协方差</strong> 的最小化让每个特征和其它特征的关系性降到最低，使得每个特征被独立地表达，而降维就是从中选出贡献（ <strong>方差</strong> ）比较大的特征。对于数据 <script type="math/tex">X</script>（ 这里的 <script type="math/tex">X</script> 和课程作业中的不同，每列表示一个数据 ），特征间的 <strong>协方差</strong> 可以表示为 <strong>协方差矩阵</strong>。</p>
 <script type="math/tex; mode=display">
-C = \frac{1}{m} X^{T}X = \frac{1}{m} \begin{bmatrix}
+C = \frac{1}{m} XX^{T} = \frac{1}{m} \begin{bmatrix}
     \sum\limits_{i=1}^{m}(x_1^{(i)})^2 & \sum\limits_{i=1}^{m}(x_1^{(i)}x_2^{(i)}) \\
     \sum\limits_{i=1}^{m}(x_2^{(i)}x_1^{(i)}) & \sum\limits_{i=1}^{m}(x_2^{(i)})^2 \\
 \end{bmatrix}</script><p><strong>协方差矩阵</strong> 对角线上的元素是数据在各个特征上的 <strong>方差</strong>，其余是特征之间的 <strong>协方差</strong>。于是降维的目标就成了找到一个基变换让 <strong>协方差矩阵</strong> 里除了对角线上的值，其余的都尽可能小。不过在下面的讨论中，我们会知道可以找到一组 <strong>基</strong> 使得变换后的 <strong>协方差</strong> 除了对角线上的值，其余都为 0。</p>

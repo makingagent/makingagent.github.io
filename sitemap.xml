@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hertzcat.com/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/</loc>
+    
+    <lastmod>2018-10-29T15:35:23.578Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://hertzcat.com/2018/10/26/ufldl-vectorization/</loc>
     
     <lastmod>2018-10-26T12:34:17.221Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://hertzcat.com/2018/04/14/coursera-ml-andrewng-nn-back-propagation/</loc>
     
     <lastmod>2018-07-09T15:39:04.544Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hertzcat.com/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/</loc>
-    
-    <lastmod>2018-07-07T03:28:03.203Z</lastmod>
     
   </url>
   
