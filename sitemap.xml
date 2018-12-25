@@ -2,107 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://hertzcat.com/2018/12/21/build-ml-pc/</loc>
+    <loc>http://hertzcat.com/2018/11/04/ufldl-pca-and-whitening/</loc>
     
-    <lastmod>2018-12-21T14:17:02.782Z</lastmod>
+    <lastmod>2018-12-25T10:19:02.492Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://hertzcat.com/2018/11/04/ufldl-pca-and-whitening/</loc>
+    <loc>http://hertzcat.com/2018/12/21/build-ml-pc/</loc>
     
-    <lastmod>2018-11-04T14:44:09.174Z</lastmod>
+    <lastmod>2018-12-21T14:17:02.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/</loc>
     
-    <lastmod>2018-10-29T15:35:23.578Z</lastmod>
+    <lastmod>2018-10-29T15:35:23.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/10/26/ufldl-vectorization/</loc>
     
-    <lastmod>2018-10-26T12:34:17.221Z</lastmod>
+    <lastmod>2018-10-26T12:34:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/10/20/ufldl-sparse-autoencoder/</loc>
     
-    <lastmod>2018-10-20T10:17:36.707Z</lastmod>
+    <lastmod>2018-10-20T10:11:43.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/09/01/box2d-segway/</loc>
     
-    <lastmod>2018-09-02T09:46:46.938Z</lastmod>
+    <lastmod>2018-09-02T09:46:46.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/04/27/tensorflow-playground/</loc>
     
-    <lastmod>2018-09-01T08:14:12.157Z</lastmod>
+    <lastmod>2018-09-01T08:14:12.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/06/13/non-player-game/</loc>
     
-    <lastmod>2018-09-01T08:10:14.589Z</lastmod>
+    <lastmod>2018-09-01T08:10:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/07/29/westworld/</loc>
     
-    <lastmod>2018-09-01T08:05:39.038Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
-    
-    <lastmod>2018-07-20T14:50:51.439Z</lastmod>
+    <lastmod>2018-09-01T08:05:39.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
     
-    <lastmod>2018-07-20T14:48:06.809Z</lastmod>
+    <lastmod>2018-07-20T14:45:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/05/13/coursera-ml-andrewng-svm/</loc>
     
-    <lastmod>2018-07-19T15:14:20.818Z</lastmod>
+    <lastmod>2018-07-19T15:14:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/07/07/coursera-ml-andrewng-anomaly-detection-and-collaborative-filtering/</loc>
     
-    <lastmod>2018-07-11T13:44:21.218Z</lastmod>
+    <lastmod>2018-07-11T13:44:21.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/04/14/coursera-ml-andrewng-nn-back-propagation/</loc>
     
-    <lastmod>2018-07-09T15:39:04.544Z</lastmod>
+    <lastmod>2018-07-09T15:39:04.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://hertzcat.com/2018/03/11/build-hexo-blog/</loc>
     
-    <lastmod>2018-06-05T13:29:45.037Z</lastmod>
+    <lastmod>2018-06-05T13:29:45.000Z</lastmod>
     
   </url>
   
@@ -116,7 +109,14 @@
   <url>
     <loc>http://hertzcat.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/</loc>
     
-    <lastmod>2018-04-14T13:19:49.000Z</lastmod>
+    <lastmod>2018-04-14T13:19:49.858Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://hertzcat.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
+    
+    <lastmod>2018-04-11T01:04:53.000Z</lastmod>
     
   </url>
   
