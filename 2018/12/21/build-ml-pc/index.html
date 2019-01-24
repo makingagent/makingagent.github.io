@@ -28,6 +28,22 @@
 
 
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    if(window.innerWidth > 480) {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 100 },
+            "HTML-CSS": { scale: 100 },
+                   SVG: { scale: 100 }
+          });
+    }
+    else {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 50 },
+            "HTML-CSS": { scale: 50 },
+                   SVG: { scale: 50 }
+          });
+    }
+</script>
 
   </head>
   <body>
