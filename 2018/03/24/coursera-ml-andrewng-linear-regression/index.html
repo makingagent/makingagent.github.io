@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <title>吴恩达机器学习：线性回归 - 拼搭小怪</title>
+    <link href='/images/fav.jpg' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+  <meta name="keywords" content="吴恩达,Coursera,线性回归,Python,机器学习,Machine Learning,Agent">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115469277-1');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    if(window.innerWidth > 480) {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 100 },
+            "HTML-CSS": { scale: 100 },
+                   SVG: { scale: 100 }
+          });
+    }
+    else {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 50 },
+            "HTML-CSS": { scale: 50 },
+                   SVG: { scale: 50 }
+          });
+    }
+</script>
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img class='avatar' src='/images/scribble.jpg' alt='Home'></a>
+  <p id='title'>拼搭小怪</p>
+  <p>智能体设计师</p>
+  <br>
+  
+  <div class="social-links">
+    
+      
+        <a href="https://www.zhihu.com/people/GuGe0825" class="iconfont icon-zhihu" title="zhihu"></a>
+      
+    
+  </div>
+  
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+    <div class='left'>
+      <a href='/2018/03/31/coursera-ml-andrewng-logistic-regression/'>
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class='right'>
+      <a href='/2018/03/11/build-hexo-blog/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <!-- <div class='date'>2018-03-24</div> -->
+            吴恩达机器学习：线性回归
+          </h1>
+          <p>首先说一些关于课程的题外话。对于 Ng 的这个课程，笔者没有选择在 Coursera 上学习课程，一来是因为 Coursera 有自己的课程周期，但这个周期不一定适合所有人。其次 Coursera 的课程作业是使用 Octave 语言，而笔者个人觉得不管是学习还是未来使用 Python 都会是更合适的语言。所以最笔者选择了 课程视频 + Python 实现作业 的形式。</p>
+<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码已经放到了 Github 上，点击 <a href="https://github.com/makingagent/Coursera-Machine-Learning" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看，代码中的错误和改进欢迎大家指出。</p>
+<p>以下是 Ng 机器学习课程第一周的笔记。</p>
+<h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>什么是机器学习？Arthur Samuel 给出的一个非正式定义是：<strong>不通过明确地编程，使计算机拥有通过学习解决问题的能力。</strong><br>机器学习的算法包括 <strong>监督学习</strong>，<strong>无监督学习</strong>，<strong>强化学习</strong>，<strong>推荐系统等</strong>。我们第一周学习的 <strong>线性回归</strong> 属于 <strong>监督学习</strong>。    </p>
+<h3 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h3><p>学习的目的是为了解决问题。回归问题是非常常见的一类问题，目的是为了找寻变量之间的关系。比如要从数据中找寻房屋面积与价格的关系，年龄与身高的关系，气体压力和体积的关系等等。而机器学习要做的正是要让机器自己来学习这些关系，并为对未知的情况做出预测。</p>
+<h3 id="监督学习的工作方式"><a href="#监督学习的工作方式" class="headerlink" title="监督学习的工作方式"></a>监督学习的工作方式</h3><p>首先要有一个训练数据集（ Training Set ），其中包含数据对应问题的正确结果。通过我们的学习算法 （ Learning Algorithm ） 学习训练数据集，最终获得一个函数 （ Hypothesis ），这个函数就是我们需要的 <strong>预测函数</strong>，能够对 训练集的数据 与 其它数据输入 做出比较准确的预测。</p>
+<img src="/2018/03/24/coursera-ml-andrewng-linear-regression/supervised-learning.jpg" title="[监督学习工作方式]">
+<p>对于 <strong>线性回归</strong> ，我们的 <strong>Hypothesis</strong> 就是：</p>
+<script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\dots+\theta_nx_n=\theta^Tx</script><p>其中的 <script type="math/tex">\theta_i</script> 就是学习算法需要学习的参数，而 <script type="math/tex">x_i</script> 是我们对于问题所选取的特征。特征就是一些与问题相关可以度量的值，比如长度、重量、温度等等。<script type="math/tex">h_\theta(x)</script> 是我们预测的结果。</p>
+<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>那么如何学习 <strong>预测函数</strong> 中的 <script type="math/tex">\theta_i</script> 呢？我们需要引入 <strong>代价函数</strong> 的概念，它的作用是评估真实与预测值之间的差异。一旦有了这个函数，学习算法的目标就是找到 <script type="math/tex">\theta_i</script> 使得这个函数的值尽可能的小。对于 <strong>线性回归</strong>，我们使用的 <strong>代价函数</strong> 是：</p>
+<script type="math/tex; mode=display">J(\theta)=\frac{1}{2m}\sum\limits_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2</script><p>其中 <script type="math/tex">m</script> 是样本数，<script type="math/tex">y</script> 是训练数据集已知答案，上标 <script type="math/tex">i</script> 表示第几组训练数据，<strong>代价函数</strong> <script type="math/tex">J(\theta)</script> 是关于 <script type="math/tex">\theta</script> 的函数。当然为了是表达更简洁、编写的程序更加清晰，我们通常会使用它的矩阵表达：</p>
+<script type="math/tex; mode=display">J(\theta)=\frac{1}{2m}(X\theta-y)^T(X\theta-y)</script><p>式中 <script type="math/tex">X</script> 为所有训练特征数据组成的矩阵，<script type="math/tex">y</script> 为训练数据集已知答案的列向量：</p>
+<script type="math/tex; mode=display">
+X=
+\begin {bmatrix}
+     1 & x_1^{(1)} & x_2^{(1)} & \cdots & x_n^{(1)} \\
+     1 & x_1^{(2)} & x_2^{(2)} & \cdots & x_n^{(2)} \\
+     \vdots  & \vdots& \vdots & \ddots & \vdots \\
+     1 & x_1^{(m)} & x_2^{(m)} & \cdots & x_n^{(m)}  
+\end {bmatrix} \ \ \ \ \ \
+y=\begin{bmatrix}
+    y^{(1)} \\
+    y^{(2)} \\
+    \vdots \\
+    y^{(m)} \\
+\end{bmatrix}</script><p>最后为了承上启下，我们来看看当特征只有一个的时候，<strong>代价函数</strong> <script type="math/tex">J(\theta)</script> 的样子。</p>
+<img src="/2018/03/24/coursera-ml-andrewng-linear-regression/plot.jpg" title="[代价函数图像]">
+<p>右图是 <script type="math/tex">J(\theta)</script> 的等高图，每一条线表示 <strong>代价函数</strong> 的值相同，红 X 表示 <strong>代价函数</strong> 的最低点。</p>
+<h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>接着刚刚看的单个特征所对应的 <strong>代价函数</strong> 图像加上之前所说的 “学习算法的目标就是找到 <script type="math/tex">\theta_i</script> 使得 <strong>代价函数</strong> 尽可能的小” 。一个很直观的想法就是，在坡上任意取一点，然后沿着下坡方向走最后到达最低点。这也正是梯度下降算法的思路，我们沿着梯度的反向更新 <script type="math/tex">\theta_i</script> 的值（ 沿着最陡的方向下坡 ），直到 <strong>代价函数</strong> 收敛到最小值。梯度下降算法更新 <script type="math/tex">\theta_i</script> 的方式为：</p>
+<script type="math/tex; mode=display">\theta_i := \theta_i-\alpha\frac{\partial}{\partial\theta_i}J(\theta)</script><p>其中 <script type="math/tex">\alpha</script> 为学习率，<script type="math/tex">:=</script> 表示使用右式的值替换 <script type="math/tex">\theta_i</script> 原有的值。对于 <strong>线性回归</strong>，我们更新 <script type="math/tex">\theta_i</script> 的方式为：</p>
+<script type="math/tex; mode=display">\theta := \theta - \alpha\frac{1}{m}X^T(X\theta-y)</script><p>到这里我们就能够完成整个 <strong>线性回归</strong> 的机器学习算法了。设定 <script type="math/tex">\theta_i</script> 的初始值，使用梯度下降算法迭代更新 <script type="math/tex">\theta_i</script> 的值，直到 <script type="math/tex">J(\theta)</script> 收敛。至于为什使用梯度的反向可以看 <a href="https://zhuanlan.zhihu.com/p/24913912" target="_blank" rel="noopener"><strong>这篇文章</strong></a>，作者从数学角度解释了原因。</p>
+<h3 id="正规方程"><a href="#正规方程" class="headerlink" title="正规方程"></a>正规方程</h3><p>对于 <strong>线性回归</strong>，我们完全可以使用数学方法来得到 <script type="math/tex">J(\theta)</script> 取最小值时 <script type="math/tex">\theta_i</script> 的值。这涉及一些导数和线性代数的知识，有兴趣的同学可以详细看课程视频中的推导过程。这里直接给出求解 <script type="math/tex">\theta</script> 的公式：</p>
+<script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^Ty</script><p>在使用时 <strong>正规方程</strong> 有一定的限制，比如 <script type="math/tex">X^TX</script> 矩阵需要是可逆的。那么有了直接求解问题的方法，为什么我们还需要梯度下降的概念呢？因为梯度下降方法更具有广泛性，可以用于很多 问题的求解，比如非线性的 <strong>代价函数</strong>。</p>
+<h3 id="特征标准化"><a href="#特征标准化" class="headerlink" title="特征标准化"></a>特征标准化</h3><p>在实际的运用中我们选取的特征，比如长度，重量，面积等等，通常单位和范围都不同，这会导致梯度下降算法变慢。所以我们要将特征缩放到相对统一的范围内。通常的方法有 <strong>Standardization</strong> 和 <strong>Normalization</strong>。<strong>Standardization</strong> 是把数据变成符合标准正态分布，即使原来是些奇奇怪怪的分布，由 <strong>中心极限定理</strong> 可知，数据量够大，一样变成正态，更新公式为：</p>
+<script type="math/tex; mode=display">x_i := \frac{x_i-\mu}{\delta}</script><p><strong>Normalization</strong> 对于梯度下降算法友好，可能可以让算法最终收敛并且提高训练速度和精度，更新公式为：</p>
+<script type="math/tex; mode=display">x_i := \frac{x_i-min(x_i)}{max(x_i)-min(x_i)}</script><h3 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h3><p>有时候线性的 <strong>Hypothesis</strong> 不一定合适我们需要拟合的数据，我们会选择多项式拟合例如：</p>
+<script type="math/tex; mode=display">h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2+\theta_3x_1x_2+\theta_4x_1^2+\theta_5x_2^2</script><p>这时候我们可以将它转化为 <strong>线性回归</strong> 问题，只要令新的特征 <script type="math/tex">x_3=x_1x_2</script>，<script type="math/tex">x_4=x_1^2</script>，<script type="math/tex">x_5=x_2^2</script> 就可以了。</p>
+<p>So~，第一周的内容就是这些了，谢谢大家耐心阅读。</p>
+
+          <br>
+<p>拼搭小怪</p>
+<p class='date'>2018-03-24</p>
+
+        </section>
+      </div>
+      
+        <div class='block'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_shortname = '拼搭小怪';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+</div>
+
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  <span class='muted'>&copy; agent. All Rights Reserved.</span><br>
+  <a href='https://github.com/saintwinkle/hexo-theme-scribble' class='muted'>built with Hexo using Scribble theme</a>
+  <br>
+</footer>
+
+  </body>
+</html>

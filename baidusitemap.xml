@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/09/01/box2d-segway/</loc>
+    <lastmod>2021-04-11T05:39:00.488Z</lastmod>
+    <data>
+        <display>
+        <title>Box2D 学习：平衡车</title>
+        <pubTime>2018-09-01T08:00:30.000Z</pubTime>
+        
+        <tag>box2d,pid,segway</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/07/07/coursera-ml-andrewng-anomaly-detection-and-collaborative-filtering/</loc>
+    <lastmod>2021-04-11T05:38:51.689Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：异常检测与协同过滤</title>
+        <pubTime>2018-07-07T02:52:21.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/03/11/build-hexo-blog/</loc>
+    <lastmod>2021-04-11T05:27:30.836Z</lastmod>
+    <data>
+        <display>
+        <title>万里长征第一步，博客搭建</title>
+        <pubTime>2018-03-11T09:34:41.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/05/13/coursera-ml-andrewng-svm/</loc>
+    <lastmod>2021-04-11T05:27:06.351Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：支持向量机</title>
+        <pubTime>2018-05-13T10:26:28.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/06/13/non-player-game/</loc>
+    <lastmod>2021-04-11T05:27:03.261Z</lastmod>
+    <data>
+        <display>
+        <title>NOC 学习：Spaceship</title>
+        <pubTime>2018-06-13T11:06:04.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/04/27/tensorflow-playground/</loc>
+    <lastmod>2021-04-11T05:27:01.319Z</lastmod>
+    <data>
+        <display>
+        <title>玩项目：TensorFlow Playground</title>
+        <pubTime>2018-04-27T01:31:38.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/10/20/ufldl-sparse-autoencoder/</loc>
+    <lastmod>2021-04-11T05:26:58.336Z</lastmod>
+    <data>
+        <display>
+        <title>UFLDL：稀疏自编码器</title>
+        <pubTime>2018-10-20T01:26:41.000Z</pubTime>
+        
+        <tag>UFLDL,神经网络,稀疏自编码器,autoencoder,Python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2019/05/08/ufldl-summary/</loc>
+    <lastmod>2021-04-11T05:26:54.235Z</lastmod>
+    <data>
+        <display>
+        <title>UFLDL：深度学习课程总结</title>
+        <pubTime>2019-05-08T12:58:20.000Z</pubTime>
+        
+        <tag>UFLDL,深度学习,Python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/07/29/westworld/</loc>
+    <lastmod>2021-04-11T05:26:28.344Z</lastmod>
+    <data>
+        <display>
+        <title>作品推荐：《西部世界》</title>
+        <pubTime>2018-07-29T13:44:53.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://makingagent.com/2018/04/21/coursera-ml-andrewng-bias-vs-variance/</loc>
+    <lastmod>2021-04-11T04:42:20.702Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：方差与偏差</title>
+        <pubTime>2018-04-21T04:44:44.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/06/05/coursera-ml-andrewng-kmeans-and-pca/</loc>
+    <lastmod>2021-04-11T04:42:10.456Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：无监督学习 | k-means 与 PCA</title>
+        <pubTime>2018-06-05T12:26:45.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/03/24/coursera-ml-andrewng-linear-regression/</loc>
+    <lastmod>2021-04-11T04:41:54.904Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：线性回归</title>
+        <pubTime>2018-03-24T02:33:53.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/03/31/coursera-ml-andrewng-logistic-regression/</loc>
+    <lastmod>2021-04-11T04:41:44.921Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：逻辑回归</title>
+        <pubTime>2018-03-31T13:05:57.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/04/14/coursera-ml-andrewng-nn-back-propagation/</loc>
+    <lastmod>2021-04-11T04:41:34.152Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：神经网络 | 反向传播算法</title>
+        <pubTime>2018-04-14T03:51:28.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/</loc>
+    <lastmod>2021-04-11T04:41:23.646Z</lastmod>
+    <data>
+        <display>
+        <title>吴恩达机器学习：神经网络 | 多分类问题</title>
+        <pubTime>2018-04-07T00:19:16.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://makingagent.com/2018/12/21/build-ml-pc/</loc>
+    <lastmod>2018-12-21T14:17:02.782Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习攒机 | 硬件篇</title>
+        <pubTime>2018-12-21T09:29:09.000Z</pubTime>
+        
+        <tag>装机,深度学习,nvidia,2080ti</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>

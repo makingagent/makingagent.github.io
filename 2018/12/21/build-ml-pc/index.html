@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>深度学习攒机 | 硬件篇 - 拼搭小怪</title>
+    <link href='/images/fav.jpg' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+  <meta name="keywords" content="机器学习,Machine Learning,Agent">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115469277-1');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    if(window.innerWidth > 480) {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 100 },
+            "HTML-CSS": { scale: 100 },
+                   SVG: { scale: 100 }
+          });
+    }
+    else {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 50 },
+            "HTML-CSS": { scale: 50 },
+                   SVG: { scale: 50 }
+          });
+    }
+</script>
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img class='avatar' src='/images/scribble.jpg' alt='Home'></a>
+  <p id='title'>拼搭小怪</p>
+  <p>智能体设计师</p>
+  <br>
+  
+  <div class="social-links">
+    
+      
+        <a href="https://www.zhihu.com/people/GuGe0825" class="iconfont icon-zhihu" title="zhihu"></a>
+      
+    
+  </div>
+  
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+    <div class='left'>
+      <a href='/2019/05/08/ufldl-summary/'>
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class='right'>
+      <a href='/2018/10/20/ufldl-sparse-autoencoder/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <!-- <div class='date'>2018-12-21</div> -->
+            深度学习攒机 | 硬件篇
+          </h1>
+          <p>双十一之前正好在学习 NG 的深度学习入门课程。在使用 Python 完成作业中训练 MNIST 的自编码器的时候，发觉训练时间比之前课程中的训练时间长了不少。照这个情况，未来如果要更深入地学习深度学习的话，可能需要更为合适的主机。所以为了以更正确的姿势入坑深度学习（ 其实是为了攒机 ），打算在双十一组装一台。</p>
+<p>笔者之前有一次组装电脑的经历，不过对当时的配置几乎没什么印象，只记得最后 CPU 粘在风扇上这个小插曲 <em>(:з」∠)</em>。所以谈不上有什么装机经验，整个装机过程是边查边挑，边查边装，最终幸运地一次点亮。这篇文章就是从挑选配置到安装的过程的总结，希望可以稍微帮助到正在攒机的朋友。</p>
+<h3 id="配件思路"><a href="#配件思路" class="headerlink" title="配件思路"></a>配件思路</h3><p>想要配一台主机，首先需要明确自己的需求，用来打游戏、用来办公、用来挖矿、还是用来机器学习等等。笔者的需求有两个，一个是平日里的家用，打打游戏、处理一些多媒体文件、做一些开发；另一个就是用来做深度学习。对于第一个需求大众的配置就可以满足了，而对于第二个需求，核心是能够加快训练速度的显卡。所以我的配机思路就是以显卡为核心，其余配置都围绕它来选择。</p>
+<h3 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h3><p>对于加速机器学习，目前只有选 NVIDIA 的显卡，无论是社区还是库的支持都是最好的。而型号的话就选最新的 <a href="https://u.jd.com/jrl7aw" target="_blank" rel="noopener"><strong>RTX 2080Ti</strong></a>。</p>
+<p>2080Ti 使用最新的 <a href="https://devblogs.nvidia.com/nvidia-turing-architecture-in-depth/" target="_blank" rel="noopener"><strong>Turing 架构</strong></a>，拥有 RT Core 和 Tensor Core。其中 RT Core 能够支持实时的光线追踪，而 Tensor Core 能够加速深度学习中的运算。</p>
+<p>虽然目前市面上还没有支持光线追踪的游戏，但从 NVIDIA 光线追踪的演示视频的帧数就能看出 2080Ti 力压之前的显卡。同样的，目前的深度学习框架 TensorFlow、Pytorch 还没有支持 CUDA10（ Pytorch 1.0 已经支持 ），所以并不能发挥 Tensor Core 的能力，不过有网友自己编译 TensorFlow 来支持 CUDA10，在使用 Tensor Core 的情况下训练速度直接翻翻。</p>
+<h3 id="机箱、电源"><a href="#机箱、电源" class="headerlink" title="机箱、电源"></a>机箱、电源</h3><p>不知道是不是因为 NVIDIA 官网配置的 <a href="https://developer.nvidia.com/devbox" target="_blank" rel="noopener"><strong>深度学习工作站</strong></a> 使用的是 <a href="https://u.jd.com/NxRn1g" target="_blank" rel="noopener"><strong>AIR540</strong></a> 这款机箱，所以网上很多人买的都是这款，说是空间很大，风道也利于散热。于是我也只好跟风选了这款（ 其实是机箱太多不知道怎么选 ）。<br>看 2080Ti 包装上写着最好配置 650W 以上的电源。考虑未来可能会做的升级（ 其实根本没钱升，逃~ ），挑选了一个 <a href="https://u.jd.com/YPz6wq" target="_blank" rel="noopener"><strong>1000W 的电源</strong></a>，牌子也没有细想，和机箱一样选择了美商海盗船。 </p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>CPU 的话主要是选择 AMD 平台还是 Intel 平台的问题。Intel 这段时间价格不断上涨，所以大多数人还是建议购买 AMD 的处理器。虽然如此我还是选择了 Intel，型号是最热门的 <a href="https://u.jd.com/PEhG6z" target="_blank" rel="noopener"><strong>i7 8700k</strong></a>（ 可能是小时候被 Intel 洗脑成功 ）。<br>确定了 CPU，主板的选择范围就基本定下来了。这是因为一方面对于 AMD 和 Intel 平台，主板上的 CPU 插槽不同，AMD 针脚在 CPU 上，而 Intel 针脚在主板上。另一方面 CPU 每代的架构和针脚排布会产生变化，因此主板的 CPU 插槽也要相对应地变化。</p>
+<h3 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h3><p>i7 8700k 推荐搭配的主板是 Z370 系列的，然后厂商的话我选择的是华硕，所以也就从华硕的 Z370 系列中选择。一开始选择了 Z370 系列中最低配的版本 <a href="https://u.jd.com/6mYeoc" target="_blank" rel="noopener"><strong>PRIME Z370-P</strong></a>，因为觉得够用就行。后来看华硕的系列介绍说 TUF 系列比较耐久和实惠，就选择了 <a href="https://u.jd.com/46gE1R" target="_blank" rel="noopener"><strong>TUF Z370-PLUS GAMING 2</strong></a>（ 第一代被吐槽的 CPU 供电在第二代加强了 ）。网上深度学习装机一般都推荐华硕 X99 主板，有考虑扩展到4路显卡需求的同学可以看看~。</p>
+<h3 id="散热"><a href="#散热" class="headerlink" title="散热"></a>散热</h3><p>和 CPU 相关还有一个要考虑的是散热器。据说 i7 8700k 如果超频的话温度会比较高，而温度一旦持续过高，CPU 就会自动降频，所以大家一般都推荐水冷。不过对于从来没有使用过水冷的我比较担心漏液啥的问题，最终还是选择了 DEEPCOOL <a href="https://u.jd.com/62VuTW" target="_blank" rel="noopener"><strong>大霜塔</strong></a>（ 其实是为了省钱 ）。另一个原因是觉得超频、拷机、CPU 显卡压测啥的都是形式大于意义，一般你也不会让主机一直处于高负载的状态。</p>
+<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>选择内存主要是考虑容量大小、CPU 频率的支持和主板对内存频率的支持，所以就选择了两条 <a href="https://u.jd.com/PSRcc2" target="_blank" rel="noopener"><strong>16G 2666 频率的内存</strong></a>。容量不够的话可以到时候再加，反正主板有足够的内存插槽。<br>然后是存储，存储目前的标配一般是 固态+机械，我计划将 Windows 系统和 Ubuntu 系统独立地装到不同的固态硬盘，所以使用了两块 500G 的固态，<a href="https://u.jd.com/o8MxOB" target="_blank" rel="noopener"><strong>Intel 760P</strong></a> 和 <a href="https://u.jd.com/HPJuuf" target="_blank" rel="noopener"><strong>三星 970 EVO</strong></a>。机械硬盘的话就 西数4T，也没啥好选的。</p>
+<h3 id="其它配件"><a href="#其它配件" class="headerlink" title="其它配件"></a>其它配件</h3><p>配件基本就是以上这些了，不过最后安装完主机后还发觉少一些东西。一个是整理电源线的时候需要魔术带，虽然一般都会附送捆扎带，但这东西不太易于调整。另一个是由于机箱的风扇比较多，主板本身的风扇接口不够用，需要多加一根 4pin 一分二的线。还有 AIR 540 只有前部自带防尘网，其余的需要自己添加。最后主板是不带蓝牙功能的，因此如果要链接蓝牙设备的话需要买个蓝牙适配器。 </p>
+<p>以下是配件清单（ 配件考虑到售后问题，除机箱外都是从京东自营采购 ）：<br><img src="/2018/12/21/build-ml-pc/list.jpg" title="[]"></p>
+<h3 id="组装流程"><a href="#组装流程" class="headerlink" title="组装流程"></a>组装流程</h3><p>组装的步骤首先是将主板上的配件装上，这样会让你有足够的空间进行操作。（ 备好螺丝刀、刀片等工具，将主板放在防静电袋上操作 ）<br><img src="/2018/12/21/build-ml-pc/mother_board.jpg" title="[]"></p>
+<p><strong>CPU：</strong>安装过程中最为紧张刺激的就是 CPU 的安装环节，不像其他的配件，CPU 与主板的对接处有着密密麻麻的针脚，安装时不免有些手抖~。<br><img src="/2018/12/21/build-ml-pc/install_cpu.png" title="[]"></p>
+<p><strong>风扇：</strong>大霜塔的安装在风冷散热器中算是比较复杂的，切记仔细阅读安装说明。我在安装的时候就没有注意到 1151 类型的主板是不去要放支撑板中间的橡胶垫的，差点导致大力出奇迹 <em>(:з」∠)</em>。还有就是记得先安装内存再装扇热器上的风扇，对于有些比较高的内存，第一个风扇还要向上抬高一些，或是装到另外一侧。 </p>
+<p><strong>内存：</strong>安装比较简单，直接插到插槽里就可以了。需要注意的是，主板上的内存插槽一般会有4个，如果你只买了2条内存主板会有说明先插入哪两个槽。</p>
+<p><strong>固态：</strong>主板上 M.2 的固态硬盘插槽有一个是带散热片的，散热片背部有导热胶，需要把上面一层揭掉，留下粘性的部分。插入 M.2 插槽后，一般都是翘起的，需要使用主板配好的螺丝固定。</p>
+<p>然后就是把整块主板装进机箱了。当然，在这之前你要把主板自带的挡板扣到机箱上，并确认用于固定主板的螺柱是否在对应位置，不要多装或者位置对错。 </p>
+<p>再接下来就是按照机箱的说明来安装电源、显卡、机械硬盘。</p>
+<img src="/2018/12/21/build-ml-pc/mother_board_finish.jpg" title="[]">
+<p>最后就是连接各种电源线。连接风扇的线 和 主机前部面板的线，为主板、CPU、显卡、固态硬盘供电（ <a href="https://dlsvr04.asus.com/pub/ASUS/mb/LGA1151/Z170-K/C11133_MB_PIN_DEFINITION_V2_WEB.pdf" target="_blank" rel="noopener"><strong>华硕主板针脚说明</strong></a> ，主要在连接机箱前部面板的接线时用到 ）。 连线有各种防呆设计，只要不硬插基本没什么问题。连线的时候要好好利用魔术带，让整个布线看起来整洁。</p>
+<img src="/2018/12/21/build-ml-pc/pc_front.jpg" title="[]">
+<img src="/2018/12/21/build-ml-pc/pc_back.jpg" title="[]">
+          <br>
+<p>拼搭小怪</p>
+<p class='date'>2018-12-21</p>
+
+        </section>
+      </div>
+      
+        <div class='block'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_shortname = '拼搭小怪';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+</div>
+
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  <span class='muted'>&copy; agent. All Rights Reserved.</span><br>
+  <a href='https://github.com/saintwinkle/hexo-theme-scribble' class='muted'>built with Hexo using Scribble theme</a>
+  <br>
+</footer>
+
+  </body>
+</html>

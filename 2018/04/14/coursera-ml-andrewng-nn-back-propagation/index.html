@@ -1,0 +1,207 @@
+<html>
+  <head>
+    <title>吴恩达机器学习：神经网络 | 反向传播算法 - 拼搭小怪</title>
+    <link href='/images/fav.jpg' rel='shortcut icon'>
+<link href='/atom.xml' rel='alternate' type='application/rss+xml'>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+<script src="/js/jquery.js"></script>
+<script src="/js/basics.js"></script>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type'>
+
+  <meta name="keywords" content="吴恩达,Coursera,神经网络,反向传播,Python,机器学习,Machine Learning,Agent">
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-115469277-1');
+  ga('send', 'pageview');
+</script>
+
+
+
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    if(window.innerWidth > 480) {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 100 },
+            "HTML-CSS": { scale: 100 },
+                   SVG: { scale: 100 }
+          });
+    }
+    else {
+        MathJax.Hub.Config({
+            CommonHTML: { scale: 50 },
+            "HTML-CSS": { scale: 50 },
+                   SVG: { scale: 50 }
+          });
+    }
+</script>
+
+  </head>
+  <body>
+    <header>
+  <a id='go-back-home' href='/'><img class='avatar' src='/images/scribble.jpg' alt='Home'></a>
+  <p id='title'>拼搭小怪</p>
+  <p>智能体设计师</p>
+  <br>
+  
+  <div class="social-links">
+    
+      
+        <a href="https://www.zhihu.com/people/GuGe0825" class="iconfont icon-zhihu" title="zhihu"></a>
+      
+    
+  </div>
+  
+</header>
+
+    <div id='container'>
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+      <section class='paging'>
+  
+    <div class='left'>
+      <a href='/2018/04/21/coursera-ml-andrewng-bias-vs-variance/'>
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class='right'>
+      <a href='/2018/04/07/coursera-ml-andrewng-nn-multi-class/'>
+        ›
+      </a>
+    </div>
+  
+</section>
+
+      <div class='content'>
+        <section class='post'>
+          <h1>
+            <!-- <div class='date'>2018-04-14</div> -->
+            吴恩达机器学习：神经网络 | 反向传播算法
+          </h1>
+          <p>上一周我们学习了 <a href="http://makingagent.com/2018/04/07/coursera-ml-andrewng-nn-multi-class/"><strong>神经网络 | 多分类问题</strong></a>。我们分别使用 <strong>逻辑回归</strong> 和 <strong>神经网络</strong> 来解决多分类问题，并了解到在特征数非常多的情况下，神经网络是更为有效的方法。这周的课程会给出训练 <strong>神经网络</strong> 所使用的 <strong>代价函数</strong>，并使用 <strong>反向传播</strong> 算法来计算梯度。笔者会给出 <strong>反向传播</strong> 算法中重要的思路和推导，但不会包含所有的计算步骤。</p>
+<p>点击 <a href="https://www.bilibili.com/video/av9912938?from=search&amp;seid=5092317489110083757" target="_blank" rel="noopener"><strong>课程视频</strong></a> 你就能不间断地学习 Ng 的课程，关于课程作业的 Python 代码已经放到了 Github 上，点击 <a href="https://github.com/makingagent/Coursera-Machine-Learning" target="_blank" rel="noopener"><strong>课程代码</strong></a> 就能去 Github 查看，代码中的错误和改进欢迎大家指出。</p>
+<p>以下是 Ng 机器学习课程第四周的笔记。</p>
+<h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>假设我们的多分类问题有 <script type="math/tex">K</script> 个分类，神经网络共有 <script type="math/tex">L</script> 层，每一层的神经元个数为 <script type="math/tex">s_l</script>，那么神经网络的 <strong>代价函数</strong> 为：</p>
+<script type="math/tex; mode=display">
+J(\Theta)= -\frac{1}{m}\sum\limits_{i=1}^{m}\sum\limits_{k=1}^{K}\Big(y_k^{(i)}log\big(h_\Theta(x^{(i)})\big)_k+(1-y_k^{(i)})log\big(1-\big(h_\Theta(x^{(i)})\big)_k\big)\Big) \\
++ \frac{\lambda}{2m}\sum\limits_{l=1}^{L-1}\sum\limits_{i=1}^{s_l}\sum\limits_{j=1}^{s_{l+1}}\big(\Theta_{ji}^{(l)}\big)^2</script><p>其中的第二项为 <strong>正则化</strong> 项，是网络中所有权值的平方和。第一项与逻辑回归中的 <strong>代价函数</strong> 类似，但这里我们需要累加所有输出神经元的误差。</p>
+<h3 id="梯度计算"><a href="#梯度计算" class="headerlink" title="梯度计算"></a>梯度计算</h3><p>为了能够使用 <strong>梯度下降</strong> 算法来训练网络，我们需要计算代价函数的梯度。一种很直观的方法就是使用数值计算，对于某个 <script type="math/tex">\Theta_{ij}</script>，给它加上减去一个很小的量 <script type="math/tex">\epsilon</script> 来计算梯度：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J(\theta)}{\partial\theta_j} \approx \frac{J(\theta_1,\cdots,\theta_j+\epsilon,\cdots,\theta_n)-J(\theta_1,\cdots,\theta_j-\epsilon,\cdots,\theta_n)}{2\epsilon}</script><p>但稍微分析一下算法的复杂度就能知道，这样的方法十分缓慢。对于每一组数据，我们需要计算所有权值的梯度，<strong>总的计算次数 = 训练数据个数 x 网络权值个数 x 前向传播计算次数 </strong>。在通常情况下这样的复杂度是无法接受的，所以我们仅使用这个方法来验证 <strong>反向传播</strong> 算法计算的梯度是否正确。</p>
+<h3 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h3><p>为了能够理解之后对于 <strong>反向传播</strong> 公式的推导，我们首先要了解一个关于多元复合函数求导的 <strong>链式法则</strong>。对于多元函数 <script type="math/tex">z=f(u,v)</script>，其中 <script type="math/tex">u=h(x,y)</script>，<script type="math/tex">v=g(x,y)</script>，那么：</p>
+<script type="math/tex; mode=display">
+\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u}\frac{\partial u}{\partial x} + \frac{\partial z}{\partial v}\frac{\partial v}{\partial x} \\
+\frac{\partial z}{\partial y} = \frac{\partial z}{\partial u}\frac{\partial u}{\partial y} + \frac{\partial z}{\partial v}\frac{\partial v}{\partial y}</script><p><strong>链式法则</strong> 告诉我们有多个层次的多元复合函数，下一层次的导数可以由上一层次推得。<br><img src="/2018/04/14/coursera-ml-andrewng-nn-back-propagation/chain_rule.jpeg" title="[链式法则]"><br>上图中笔者有意多加了一层，这里 <script type="math/tex">p</script> 是 <script type="math/tex">u,v</script> 的函数，<script type="math/tex">q</script> 是 <script type="math/tex">u,v</script> 的函数，<script type="math/tex">z</script> 是 <script type="math/tex">p,q</script> 的函数。对于要计算的 <script type="math/tex">\frac{\partial z}{\partial x}</script> 与 <script type="math/tex">\frac{\partial z}{\partial y}</script>，上式仍成立，原因是我们可以把 <script type="math/tex">z</script> 看作 <script type="math/tex">u,v</script> 的函数。这相当于我们把：</p>
+<script type="math/tex; mode=display">
+\frac{\partial z}{\partial x} = \frac{\partial z}{\partial p} \frac{\partial p}{\partial u} \frac{\partial u}{\partial x} +
+\frac{\partial z}{\partial p} \frac{\partial p}{\partial v} \frac{\partial v}{\partial x} +
+\frac{\partial z}{\partial q} \frac{\partial q}{\partial u} \frac{\partial u}{\partial x} +
+\frac{\partial z}{\partial q} \frac{\partial q}{\partial v} \frac{\partial v}{\partial x}</script><p>简化为了只与上一层相关，利用上一层计算完成的结果 <script type="math/tex">\frac{\partial z}{\partial u}</script> 和 <script type="math/tex">\frac{\partial z}{\partial v}</script> 而不用从头算起：</p>
+<script type="math/tex; mode=display">
+\frac{\partial z}{\partial x} = \frac{\partial z}{\partial u}\frac{\partial u}{\partial x} + \frac{\partial z}{\partial v}\frac{\partial v}{\partial x}</script><p>一般的，对于函数 <script type="math/tex">y</script>，如果它能看做 <script type="math/tex">z_1,z_2 \cdots,z_n</script> 的函数，而 <script type="math/tex">z_i</script> 为 <script type="math/tex">t</script> 的函数，则：</p>
+<script type="math/tex; mode=display">
+\frac{\partial y}{\partial t} = \sum\limits_{i=1}^{n} \frac{\partial y}{\partial z_i} \frac{\partial z_i}{\partial t}</script><p>神经网络就是一个层次很多的多元函数，我们可以隐约从 <strong>链式法则</strong> 中感觉到反向传播的意味。</p>
+<h3 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h3><p>为了施展 <strong>反向传播</strong> 的魔法，我们首要要引入一个中间变量 <script type="math/tex">\delta</script>，定义为：</p>
+<script type="math/tex; mode=display">
+\delta_j^{l} = \frac{\partial J}{\partial z_j^{l}}</script><p>其中 <script type="math/tex">l</script> 为第几层，<script type="math/tex">j</script> 表示第 <script type="math/tex">l</script> 层的第几个神经元，<script type="math/tex">z</script> 为上次课程提到的中间变量（ 为了让式子看上去更清晰，<strong>反向传播</strong> 中的公式上标不使用括号 ）。<script type="math/tex">\delta</script> 被称为第 <script type="math/tex">l</script> 层第 <script type="math/tex">j</script> 个神经元的误差。<strong>反向传播</strong> 就是先计算每一层每个神经元的误差，然后通过误差来得到梯度的。</p>
+<p>首先来看输出层的误差：</p>
+<script type="math/tex; mode=display">
+\delta^L_j = \frac{\partial J}{\partial z^L_j}</script><p>对它使用 <strong>链式法则</strong> 得到：</p>
+<script type="math/tex; mode=display">
+\delta^L_j = \sum\limits_{k=1}^{K} \frac{\partial J}{\partial a^L_k} \frac{\partial a^L_k}{\partial z^L_j}</script><p>而只有当 <script type="math/tex">k==j</script> 时，右边部分才不为 <script type="math/tex">0</script>，所以：</p>
+<script type="math/tex; mode=display">
+\delta^L_j = \frac{\partial J}{\partial a^L_j} \frac{\partial a^L_j}{\partial z^L_j} = \frac{\partial J}{\partial a^L_j} g'(z_j^L)=a_j^L-y_j^L\tag{1}</script><p>对于其它层的误差：</p>
+<script type="math/tex; mode=display">
+\delta^l_j = \frac{\partial J}{\partial z^l_j}</script><p>使用 <strong>链式法则</strong>：</p>
+<script type="math/tex; mode=display">
+\delta^l_j = \sum\limits_{k=1}^{s_{l+1}} \frac{\partial J}{\partial z_k^{l+1}} \frac{\partial z_k^{l+1}}{\partial z^l_j} = \sum\limits_{k=1}^{s_{l+1}} \delta^{l+1}_k \frac{\partial z_k^{l+1}}{\partial z^l_j}</script><p>而其中：</p>
+<script type="math/tex; mode=display">
+z_k^{l+1} = \sum\limits_{p=1}^{s_l} \Theta_{kp}^{l} g(z_p^l)+b_k^{l}</script><p>求偏导得：</p>
+<script type="math/tex; mode=display">
+\frac{\partial z^{l+1}_k}{\partial z^l_j} = \Theta_{kj}^{l} g'(z^l_j)</script><p>所以：</p>
+<script type="math/tex; mode=display">
+\delta^l_j = \sum\limits_{k=1}^{s_{l+1}} \Theta_{kj}^{l} \delta^{l+1}_k g'(z^l_j) = \sum\limits_{k=1}^{s_{l+1}} \Theta_{kj}^{l} \delta^{l+1}_k a_j^l (1-a_j^l) \tag{2}</script><p>最后同样使用 <strong>链式法则</strong> 来计算：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\Theta_{ij}^{l}} = \sum\limits_{k=1}^{s_{l+1}} \frac{\partial J}{\partial z_k^{l+1}} \frac{\partial z_k^{l+1}}{\partial \Theta_{ij}^{l}} = \sum\limits_{k=1}^{s_{l}} \delta^{l+1}_k \frac{\partial z_k^{l+1}}{\partial \Theta_{ij}^{l}}</script><p>由于：</p>
+<script type="math/tex; mode=display">
+z_k^{l+1} = \sum\limits_{p=1}^{s_l} \Theta_{kp}^{l} g(z_p^l)+b_k^{l}</script><p>只有当 <script type="math/tex">k=i</script>，<script type="math/tex">p=j</script> 时留下一项：</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\Theta_{ij}^{l}} = g(z_j^l) \delta^{l+1}_i = a_j^l \delta^{l+1}_i \tag{3}</script><h3 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h3><p>有了 (1) (2) (3) 式，就可以来完成 <strong>反向传播</strong> 算法了（ 需要注意的是刚才所推导的式子都是针对一组训练数据而言的 ）。</p>
+<blockquote>
+<ol>
+<li>对于所有的 <script type="math/tex">l, i, j</script> 初始化 <script type="math/tex">\Delta_{ij}^l = 0</script></li>
+<li>对于 <script type="math/tex">m</script> 组训练数据，<script type="math/tex">k</script> 从 <script type="math/tex">1</script> 取到 <script type="math/tex">m</script>：<ul>
+<li>令 <script type="math/tex">a^1 = x^{(k)}</script></li>
+<li>前向传播，计算各层激活向量 <script type="math/tex">a^{l}</script></li>
+<li>使用 (1) 式，计算输出层误差 <script type="math/tex">\delta^L</script></li>
+<li>使用 (2) 式，计算其它层误差 <script type="math/tex">\delta^{L-1},\delta^{L-2},...,\delta^{2}</script></li>
+<li>使用 (3) 式，累加 <script type="math/tex">\Delta_{ij}^l</script>，<script type="math/tex">\Delta_{ij}^l:=\Delta_{ij}^l+a_j^l\delta_i^{l+1}</script></li>
+</ul>
+</li>
+<li>计算梯度矩阵：<script type="math/tex; mode=display">D^{l}_{ij} =
+\begin{cases}
+\dfrac{1}{m}\Delta^{l}_{ij} + \dfrac{\lambda}{m}\Theta^{l}_{ij} & \mbox{if $j \neq 0$} \\
+\dfrac{1}{m}\Delta_{ij}^{l} & \mbox{if $j=0$}
+\end{cases}</script></li>
+<li>更新权值 <script type="math/tex">\Theta^l := \Theta^l+ \alpha D^l</script></li>
+</ol>
+</blockquote>
+<h3 id="权值初始化"><a href="#权值初始化" class="headerlink" title="权值初始化"></a>权值初始化</h3><p>最后提一下权值的初始化。对于神经网络，不能像之前那样使用相同的 0 值来初始化，这会导致每层的 <strong>逻辑单元</strong> 都相同。因此我们使用随机化的初始化方法，使得 <script type="math/tex">-\delta \leq \Theta_{ij}^{l} \leq \delta</script>。</p>
+<p>So~，这周学完了 <strong>神经网络</strong> 和它的学习算法，大家有没有觉得很神奇呢？</p>
+
+          <br>
+<p>拼搭小怪</p>
+<p class='date'>2018-04-14</p>
+
+        </section>
+      </div>
+      
+        <div class='block'>
+  <div id='disqus_thread'></div>
+  <script>
+    var disqus_shortname = '拼搭小怪';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+</div>
+
+      
+      <div class='block'>
+  
+    <a class='main' href='/'>Blog</a>
+  
+    <a class='main' href='https://github.com/makingagent'>Github</a>
+  
+</div>
+
+    </div>
+    <footer>
+  <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+  <span class='muted'>&copy; agent. All Rights Reserved.</span><br>
+  <a href='https://github.com/saintwinkle/hexo-theme-scribble' class='muted'>built with Hexo using Scribble theme</a>
+  <br>
+</footer>
+
+  </body>
+</html>
